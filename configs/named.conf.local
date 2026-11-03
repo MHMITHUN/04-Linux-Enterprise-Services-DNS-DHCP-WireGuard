@@ -1,0 +1,17 @@
+// BIND9 Local Zone Definitions: Asian Network Enterprise DNS
+// File: /etc/bind/named.conf.local
+// Author: Md. Mahamudul Hasan
+
+zone "asiannet.internal" {
+    type master;
+    file "/etc/bind/zones/db.asiannet.internal";
+    allow-transfer { 192.168.30.12; }; // Secondary Slave DNS Server
+    allow-query { any; };
+};
+
+zone "30.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/zones/db.192.168.30";
+    allow-transfer { 192.168.30.12; };
+};
+

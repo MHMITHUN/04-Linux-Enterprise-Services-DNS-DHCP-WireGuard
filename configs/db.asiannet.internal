@@ -1,0 +1,32 @@
+;
+; BIND Forward Zone File: asiannet.internal
+;
+$TTL    604800
+@       IN      SOA     ns1.asiannet.internal. admin.asiannet.internal. (
+                              2026110401 ; Serial
+                                  604800 ; Refresh
+                                   86400 ; Retry
+                                 2419200 ; Expire
+                                  604800 ) ; Negative Cache TTL
+;
+; Name Servers
+@       IN      NS      ns1.asiannet.internal.
+@       IN      NS      ns2.asiannet.internal.
+
+; A Records for Infrastructure
+ns1             IN      A       192.168.30.10
+ns2             IN      A       192.168.30.12
+gateway         IN      A       192.168.30.1
+radius          IN      A       192.168.30.15
+olt-master      IN      A       192.168.30.20
+noc-monitor     IN      A       192.168.30.50
+mail            IN      A       192.168.30.25
+
+; MX Records
+@       IN      MX      10 mail.asiannet.internal.
+
+; CNAME Records
+www             IN      CNAME   noc-monitor.asiannet.internal.
+dns             IN      CNAME   ns1.asiannet.internal.
+ftp             IN      CNAME   noc-monitor.asiannet.internal.
+
